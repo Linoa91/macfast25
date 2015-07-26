@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+<meta name="description" content="Site vitrine jeux concours pour projet fin d'année F2I">
+		<meta charset="utf-8">
+		<title>Mac Fast 25 ans</title>
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" />
+		<link rel="stylesheet" type="text/css" href="/css/style.css" />
+		<!--[if lt IE 9]>
+<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+	</head>
+	<body >
+		<div class="container">
+			<header>
+				<div id="menu">
+					<a href="#facebook" class="btn facebook"></a>
+					<a href="#twitter" class="btn twitter"></a>
+					<a href="#gplus" class="btn gplus"></a>
+					<a href="#Langage" class="btn lang"></a>
+				</div>
+        <div id="logomacfast"><a href="/"><img alt="logo Mac Fast" src="/images/logo_macfast.jpg"/></a></div>
+				<div id="title"><h1>{% block title %}25 ans de pur vitalité<br />Merci pour votre fidélité{% endblock %}</h1></div>
+        {% block sub_header %}{% endblock %}
+			</header>
+			<nav>
+				<a href="/index.php/jouer" class="btn round"><img alt="jouer" src="/images/boutons/picto_jeu.png"/></a>
+				<a href="#cadeaux" class="btn round"><img alt="cadeaux" src="/images/boutons/picto_cado.png"/></a>
+				<a href="#noustrouver" class="btn round"><img alt="nous trouver" src="/images/boutons/picto_localisation.png"/></a>
+			</nav>
+			<main>
+        {% block main %}{% endblock %}
+			</main>
+			<footer>
+        {% block footer %}
+				<a href="#">Plan du site</a>
+        {% endblock %}
+			</footer>
+		</div>
+	</body>
+</html>

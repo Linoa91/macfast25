@@ -1,0 +1,13 @@
+{% extends "base.twig.html" %}
+
+{% block main %}
+				<section>
+          {% if error is defined %}
+          <span id="errors">{{ error }}</span>
+          {% endif %}
+          <form action="" method="post">
+            <input type="text" name="code"/>
+            <input type="submit" name="code_verif" value="{{ 'Valider' | upper }}" />
+          </form>
+				</section>
+{% endblock %}

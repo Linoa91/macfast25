@@ -1,0 +1,193 @@
+body {
+  margin: auto;
+  padding: 0px;
+  background-image: url(/images/site-background.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  font-family: CenturyGothic, Verdana, SansSerif;
+}
+
+h1 {
+  font-size: 32pt;
+  /* 	font-family: CaviarDreams, Verdana, SansSerif; */
+  color: #61a531; /* #e76713 */
+  text-align:center
+}
+h2 {
+  font-size: 19pt;
+  color: #545454;
+  /* 	font-family: CaviarDreams, Verdana, SansSerif; */
+  text-align:center;
+}
+h2.jeu {
+  font-size: 36pt;
+  color: #000000;
+}
+
+h3 {
+  font-family: CenturyGothic;
+  font-weight: bold;
+  font-size: 12pt;
+  color: #61a531;
+}
+
+a {
+  font-family: CenturyGothic;
+  font-size: 12pt;
+  color: #010000;
+  text-decoration:none
+}
+
+p {
+  font-family: CenturyGothic;
+  font-size: 12pt;
+  color: #000000;
+}
+
+a.btn {
+  display: inline-block;
+}
+
+.btn.round {
+  border-radius: 50%;
+  text-align: center;
+}
+
+.container {
+  margin: auto;
+  width: 75%;
+  background-color: white;
+  padding: 5px;
+}
+
+/**
+* Contenu de l'entete
+*/
+#menu {
+  /*position: relative;
+  left: 863px;*/
+float: right;
+  margin-top:-25px;
+}
+
+#menu img {
+  height: 30px;
+}
+
+header h3 {
+  text-align: center;
+  font-size: 17px;
+  float: left;
+  margin-left: 180px;
+}
+header #logomacfast {
+  float: left;
+  margin-left: 20px;
+}
+
+header #title {
+  margin-left: 170px;
+}
+header {
+  display: block;
+}
+
+#logomacfast {
+  width: 165px;
+  height: 165px;
+  overflow: hidden;
+  position: absolute;
+}
+#logomacfast img {
+  width: 100%;
+  margin-top: calc(-90%);
+}
+
+#sub-header {
+  margin-top: 50px;
+  width: 100%;
+  height: 220px;
+}
+
+#sub-header img {
+  height: 100%;
+  display: block;
+  margin: auto;
+}
+
+/**
+* Fin contenu de l'entete
+*/
+
+footer {
+  background: #61a531;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 220px;
+}
+
+nav > a {
+  width: 180px;
+  background-color: #61a531;
+  height: 180px;
+  margin: auto;
+}
+
+#menu a.btn {
+  background-size: 100%;
+  height: 30px;
+  display: inline-block;
+  width: 30px;
+  background-repeat: no-repeat;
+}
+
+/**
+* Définitions des images des boutons
+*/
+a.btn.facebook       { background-image: url(/images/boutons/facebook_N.png); }
+a.btn.facebook:hover { background-image: url(/images/boutons/facebook_H.png); }
+a.btn.twitter       { background-image: url(/images/boutons/twitter_N.png); }
+a.btn.twitter:hover { background-image: url(/images/boutons/twitter_H.png); }
+a.btn.gplus       { background-image: url(/images/boutons/google+_N.png); }
+a.btn.gplus:hover { background-image: url(/images/boutons/google+_H.png); }
+a.btn.lang        { background-image: url(/images/boutons/picto_langue_N.png); }
+a.btn.lang:hover  { background-image: url(/images/boutons/picto_langue_H.png); }
+
+nav img {
+  margin-top: calc(18%);
+  height: 60%;
+}
+nav a:hover {
+  background-color: #db6211;
+}
+
+
+@media screen and (max-width: 579px) {
+  nav {
+    flex-direction: column;
+    min-height: 500px;
+  }
+  #logomacfast {
+    width: 50px;
+    height: 50px;
+  }
+  #logomacfast img {
+    width: 130%;
+    margin-top: 0px;
+  }
+}
+@media screen and (max-width: 720px) {
+  nav > a {
+    width: 145px;
+    height: 145px;
+  }
+  #logomacfast {
+    width: 100px;
+    height: 100px;
+  }
+}
+

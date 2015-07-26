@@ -1,0 +1,16 @@
+{% extends "base.twig.html" %}
+
+{% block main %}
+				<section>
+          {% if error is defined %}
+          <span id="errors">{{ error }}</span>
+          {% endif %}
+          <form action="" method="post" target="_blank">
+            <label>Nom: <input type="text" name="name" required/></label>
+            <label>Prénom: <input type="text" name="firstname" required /></label>
+            <label>Adresse email: <input type="email" name="email" required /></label>
+            <label>Téléphone: <input type="text" name="telephone"/></label>
+            <input type="submit" name="user" value="Valider" />
+          </form>
+				</section>
+{% endblock %}

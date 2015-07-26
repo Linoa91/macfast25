@@ -1,0 +1,11 @@
+{% extends "base.twig.html" %}
+
+{% block main %}
+				<section id="recompense">
+          {% if cadeau %}
+            Vous avez gagné un {{ cadeau.nom }}
+          {% else %}
+            Vous avez perdu
+          {% endif %}
+				</section>
+{% endblock %}
