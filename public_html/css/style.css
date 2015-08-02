@@ -165,6 +165,26 @@ nav a:hover {
   background-color: #db6211;
 }
 
+/**
+ * Footer
+ */
+footer #liens {
+  text-align: center;
+  vertical-align: middle;
+}
+
+ul#liens {
+  list-style: none;
+  display: flex;
+  margin: auto;
+}
+
+ul#liens > li {
+  margin: 10px;
+}
+ul#liens > li:not(:last-child):after {
+  content: '|'
+}
 
 @media screen and (max-width: 579px) {
   nav {

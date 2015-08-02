@@ -1,0 +1,16 @@
+#jeux_formulaire form {
+  background-color: #e7e8ea;
+  padding: 10px;
+  margin: 20px;
+}
+
+#jeux_formulaire form label {
+  display: block;
+  margin: 30px;
+}
+
+#jeux_formulaire form label input {
+  display: inline-block;
+  float: right;
+  width: 80%;
+}
