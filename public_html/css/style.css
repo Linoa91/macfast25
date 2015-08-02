@@ -3,21 +3,28 @@ body {
   padding: 0px;
   background-image: url(/images/site-background.jpg);
   background-repeat: no-repeat;
-  background-size: 100%;
-  font-family: CenturyGothic, Verdana, SansSerif;
+  background-size: 100% 100%;
+  font-family: "CenturyGothic", Verdana, SansSerif;
+}
+
+fieldset {
+  border: none;
 }
 
 h1 {
   font-size: 32pt;
-  /* 	font-family: CaviarDreams, Verdana, SansSerif; */
+  font-family: "Caviar", Verdana, SansSerif;
   color: #61a531; /* #e76713 */
-  text-align:center
+  text-align:center;
+  margin: auto;
+  padding: 15px;
 }
 h2 {
   font-size: 19pt;
   color: #545454;
-  /* 	font-family: CaviarDreams, Verdana, SansSerif; */
+  	font-family: "Caviar", Verdana, SansSerif;
   text-align:center;
+  padding: 5px;
 }
 h2.jeu {
   font-size: 36pt;
@@ -55,9 +62,9 @@ a.btn {
 
 .container {
   margin: auto;
+  margin-top: 0;
   width: 75%;
   background-color: white;
-  padding: 5px;
 }
 
 /**
@@ -67,7 +74,7 @@ a.btn {
   /*position: relative;
   left: 863px;*/
 float: right;
-  margin-top:-25px;
+  margin-top:5px;
 }
 
 #menu img {
@@ -100,7 +107,7 @@ header {
 }
 #logomacfast img {
   width: 100%;
-  margin-top: calc(-90%);
+  margin-top: calc(10%);
 }
 
 #sub-header {
@@ -121,6 +128,11 @@ header {
 
 footer {
   background: #61a531;
+  vertical-align: middle;
+  font-family: "CenturyGothic", Verdana, SansSerif;
+  font-size:12px;
+  padding: 20px;
+  margin: 0px;
 }
 
 nav {
@@ -171,6 +183,8 @@ nav a:hover {
 footer #liens {
   text-align: center;
   vertical-align: middle;
+  font-family: "CenturyGothic", Verdana, SansSerif;
+  font-size:12px;
 }
 
 ul#liens {
@@ -179,14 +193,10 @@ ul#liens {
   margin: auto;
 }
 
-ul#liens > li {
-  margin: 10px;
-}
-ul#liens > li:not(:last-child):after {
-  content: '|'
-}
+
 
 @media screen and (max-width: 579px) {
+  .container { width: 90%; }
   nav {
     flex-direction: column;
     min-height: 500px;
@@ -194,10 +204,6 @@ ul#liens > li:not(:last-child):after {
   #logomacfast {
     width: 50px;
     height: 50px;
-  }
-  #logomacfast img {
-    width: 130%;
-    margin-top: 0px;
   }
 }
 @media screen and (max-width: 720px) {

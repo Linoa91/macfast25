@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <meta name="description" content="Site vitrine jeux concours pour projet fin d'année F2I">
     <meta charset="utf-8">
     <title>Mac Fast 25 ans</title>
     <!-- Feuille de reset css conseillé par Alsacréation (http://www.alsacreations.com/astuce/lire/36-reset-css.html) -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/fonts.css" />
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
     {% block css_links %}
     {% endblock %}
@@ -28,7 +29,7 @@
       </header>
       <nav>
         <a href="/index.php/jouer#jeux_formulaire" class="btn round"><img alt="jouer" src="/images/boutons/picto_jeu.png"/></a>
-        <a href="#cadeaux" class="btn round"><img alt="cadeaux" src="/images/boutons/picto_cado.png"/></a>
+        <a href="/index.php/cadeaux#cadeaux" class="btn round"><img alt="cadeaux" src="/images/boutons/picto_cado.png"/></a>
         <a href="#noustrouver" class="btn round"><img alt="nous trouver" src="/images/boutons/picto_localisation.png"/></a>
       </nav>
       <main>
@@ -37,9 +38,9 @@
       <footer>
         {% block footer %}
         <ul id="liens">
-          <li><a href="#">Plan du site</a></li>
-          <li><a href="#">Reglement du jeu</a></li>
-          <li><a href="#">Conditions Générales d'utilisation</a></li>
+          <li><a href="#">Plan du site</a> |&nbsp</li>
+          <li><a href="#">Reglement du jeu</a> |&nbsp </li>
+          <li><a href="#">Conditions Générales d'utilisation</a> |&nbsp </li>
           <li><a href="#">Mentions légales du site</a></li>
         </ul>
         {% endblock %}

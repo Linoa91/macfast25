@@ -1,13 +1,24 @@
 {% extends "base.twig.html" %}
 
+{% block css_links %}
+<!-- Lien du style specifique aux pages de jeux  -->
+<link rel="stylesheet" type="text/css" href="/css/jeux.css" />
+{% endblock %}
+
 {% block main %}
-				<section>
-          {% if error is defined %}
-          <span id="errors">{{ error }}</span>
-          {% endif %}
-          <form action="" method="post">
-            <input type="text" name="code"/>
-            <input type="submit" name="code_verif" value="{{ 'Valider' | upper }}" />
-          </form>
-				</section>
+<section class="container" id="jouer_code">
+  {% if error is defined %}
+  <span id="errors">{{ error }}</span>
+  {% endif %}
+  <h2>
+    Entrez votre code ici
+  </h2>
+  <form action="" method="post">
+    <input type="text" name="code" pattern="[A-Fa-f0-9]{8}" required />
+    <div>
+      <input type="submit" name="code_verif" value="{{ 'Valider' | upper }}" />
+      <input type="submit" name="no_ticket" value="{{ 'Pas de ticket' | upper }}" />
+    </div>
+  </form>
+</section>
 {% endblock %}

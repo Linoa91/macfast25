@@ -1,0 +1,23 @@
+{% extends "base.twig.html" %}
+
+{% block css_links %}
+<!-- Lien du style specifique aux pages de jeux  -->
+<link rel="stylesheet" type="text/css" href="/css/cadeaux.css" />
+{% endblock %}
+
+{% block main %}
+				<section id="cadeaux" class="container">
+          <h2>Les cadeaux à gagner</h2>
+          <ul id="galery">
+            {% for cadeau in cadeaux %}
+            <li>
+              <img src="/images/cadeaux/{{ cadeau.img }}"/>
+              <p>
+                <span class="nom_cadeau">{{ cadeau.nom }}</span>
+                {{ cadeau.description }}
+              </p>
+            </li>
+            {% endfor %}
+          </ul>
+				</section>
+{% endblock %}

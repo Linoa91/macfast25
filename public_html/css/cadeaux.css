@@ -1,0 +1,41 @@
+#cadeaux h2 {
+  text-align: justify;
+  color: #db6211;
+}
+
+#cadeaux ul {
+  list-style: none;
+  display:flex;
+  flex-wrap: wrap;
+  padding: 0;
+  align-items: center;
+}
+#cadeaux ul li {
+  flex: 50%;
+  display: flex;
+  margin: auto;
+  flex-wrap: wrap;
+}
+
+#cadeaux ul li img {
+  flex: 2;
+  width: 90%;
+  height: 90%;
+}
+#cadeaux ul li p {
+  padding: 10px;
+  flex: 3;
+  font-size: small;
+  margin: 0;
+}
+#cadeaux ul li span {
+  color: #61a531;
+  padding-bottom: 10px;
+  display: block;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 579px) {
+  #cadeaux ul li img { flex: 1}
+  #cadeaux ul li { flex: 100%; }
+}

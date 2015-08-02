@@ -1,11 +1,20 @@
 {% extends "base.twig.html" %}
 
+{% block css_links %}
+<!-- Lien du style specifique aux pages de jeux  -->
+<link rel="stylesheet" type="text/css" href="/css/jeux.css" />
+{% endblock %}
+
 {% block main %}
-				<section id="recompense">
+				<section id="recompense" class="container {% if cadeau %}gagne{% else %}perdu{% endif %}">
           {% if cadeau %}
-            Vous avez gagné un {{ cadeau.nom }}
+          <h2>Gagné !</h2>
+          <p>Vous remportez <br /> un {{ cadeau.nom }}</p>
+          <img />
+          <span class="info_mode_reception">Vous aller recevoir votre code d'activation par mail et SMS</span>
           {% else %}
-            Vous avez perdu
+          <h2>Vous avez perdu</h2>
+          <img />
           {% endif %}
 				</section>
 {% endblock %}

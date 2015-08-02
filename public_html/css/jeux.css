@@ -1,16 +1,98 @@
-#jeux_formulaire form {
+#jeux_formulaire, #jouer_code, #recompense {
   background-color: #e7e8ea;
-  padding: 10px;
-  margin: 20px;
+  margin: 20px auto;
 }
 
-#jeux_formulaire form label {
+#jeux_formulaire form .data label {
   display: block;
   margin: 30px;
 }
 
-#jeux_formulaire form label input {
+#jeux_formulaire form .data label input, #jeux_formulaire form .data label input ~ .input_infos {
   display: inline-block;
   float: right;
   width: 80%;
+}
+#jeux_formulaire form .data label input ~ .input_infos { font-size: small; }
+#jeux_formulaire form .conditions label {
+  display: block;
+  font-size: small;
+  margin: 5px;
+}
+
+#jeux_formulaire input[type="text"]:invalid, #jeux_formulaire input[type="email"]:invalid {
+/*   border: 1px solid red; */
+}
+
+#jeux_formulaire form .conditions label input {
+  margin: 5px;
+}
+
+#jeux_formulaire form .data label input ~ .input_infos, #jeux_formulaire form .conditions label {
+  font-family: "CenturyGothic", Verdana, SansSerif;
+}
+
+#jeux_formulaire form input[type="submit"] {
+  display: block;
+  background-color: green;
+  font-size: xx-large;
+  font-family: "Caviar", Verdana, SansSerif;
+  float: right;
+  height: 50px;
+  width: 200px;
+  margin: 10px;
+}
+
+#jouer_code input[name="code"] {
+  display: block;
+  width: 75%;
+  margin: auto;
+  height: 100px;
+  font-size: 75px;
+  text-align: center;
+}
+/* #jouer_code input[name="code"]:invalid {
+  background: red;
+  content: "Pas correct"
+}
+ */
+#jouer_code input[type="submit"] {
+  flex: 1;
+}
+
+#jouer_code div {
+  width: 75%;
+  margin: auto;
+  display: flex;
+  padding: 15px;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: x-large;
+}
+
+#jouer_code div input {
+  height: 50px;
+  background: white;
+}
+
+#jouer_code div input:hover {
+  background-color: #db6211;
+}
+
+#recompense {
+  text-align: center;
+  padding: 10px;
+}
+#recompense.gagne { background-color: #61a531; }
+#recompense.perdu { background-color: #db6211; }
+
+#recompense p, #recompense h2 { color: white; }
+#recompense p { font-size: x-large; }
+#recompense h2 { font-size: 350%; }
+
+#recompense .info_mode_reception {
+  text-align: left;
+  font-size: small;
+  color: white;
+  float: left;
 }

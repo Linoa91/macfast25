@@ -1,21 +1,31 @@
 {% extends "base.twig.html" %}
 
 {% block css_links %}
-  <!-- Lien du style specifique aux pages de jeux  -->
-  <link rel="stylesheet" type="text/css" href="/css/jeux.css" />
+<!-- Lien du style specifique aux pages de jeux  -->
+<link rel="stylesheet" type="text/css" href="/css/jeux.css" />
 {% endblock %}
 
 {% block main %}
-				<section id="jeux_formulaire" >
-          {% if error is defined %}
-          <span id="errors">{{ error }}</span>
-          {% endif %}
-          <form action="" method="post" target="_blank">
-            <label>Nom<input type="text" name="name" required/></label>
-            <label>Prénom<input type="text" name="firstname" required /></label>
-            <label>Adresse email<input type="email" name="email" required /></label>
-            <label>Téléphone<input type="text" name="telephone"/></label>
-            <input type="submit" name="user" value="Valider" />
-          </form>
-				</section>
+<section id="jeux_formulaire" class="container" >
+    <h2>
+      Avant de participer <br/>
+      Veuillez remplir ce formulaire d'inscription
+    </h2>
+  {% if error is defined %}
+  <span id="errors">{{ error }}</span>
+  {% endif %}
+  <form action="" method="post" target="_blank">
+    <fieldset class="data">
+      <label>Nom<input type="text" name="name" required/></label>
+      <label>Prénom<input type="text" name="firstname" required /></label>
+      <label>Adresse email<input type="email" name="email" required /></label>
+      <label>Téléphone<input type="text" name="telephone"/><span class="input_infos">* pour recevoir votre code de validation par SMS</span></label>
+    </fieldset>
+    <input type="submit" name="user" value="VALIDER" />
+    <fieldset class="conditions">
+      <label><input type="checkbox" checked/>Je n'accepte pas d'être abboné à la Newsletter de MAC FAST</label>
+      <label><input type="checkbox" required/>J'accepte les conditions génerale d'utilisation du site et du jeu concours</label>
+    </fieldset>
+  </form>
+</section>
 {% endblock %}
