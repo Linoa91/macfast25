@@ -1,6 +1,7 @@
 #cadeaux h2 {
   text-align: justify;
   color: #db6211;
+  font-size:32pt;
 }
 
 #cadeaux ul {
@@ -9,6 +10,7 @@
   flex-wrap: wrap;
   padding: 0;
   align-items: center;
+  margin-bottom : 20px;
 }
 #cadeaux ul li {
   flex: 50%;
@@ -25,7 +27,7 @@
 #cadeaux ul li p {
   padding: 10px;
   flex: 3;
-  font-size: small;
+  font-size: medium;
   margin: 0;
 }
 #cadeaux ul li span {

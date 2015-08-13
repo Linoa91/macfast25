@@ -13,6 +13,8 @@
     <!--[if lt IE 9]>
 <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
+    
+
   </head>
   <body >
     <div class="container">
@@ -24,7 +26,7 @@
           <a href="#Langage" class="btn lang"></a>
         </div>
         <div id="logomacfast"><a href="/"><img alt="logo Mac Fast" src="/images/logo_macfast.jpg"/></a></div>
-        <div id="title"><h1>{% block title %}25 ans de pur vitalité<br />Merci pour votre fidélité{% endblock %}</h1></div>
+        <div id="title"><h1>{% block title %} <span style="color:#e76713">25 ans</span> de pur vitalité<br />Merci pour votre <span style="color:#e76713">fidélité !</span>{% endblock %}</h1></div>
         {% block sub_header %}{% endblock %}
       </header>
       <nav>
@@ -38,10 +40,18 @@
       <footer>
         {% block footer %}
         <ul id="liens">
-          <li><a href="#">Plan du site</a> |&nbsp</li>
-          <li><a href="#">Reglement du jeu</a> |&nbsp </li>
-          <li><a href="#">Conditions Générales d'utilisation</a> |&nbsp </li>
-          <li><a href="#">Mentions légales du site</a></li>
+          <li><a href="#">Plan du site | </a></li>
+          <li><a href="http://reglement_jeu.twig.html">Reglement du jeu | </a></li>
+          <li><a href="http://condition_general.twig.html">Conditions Générales d'utilisation | </a></li>
+          <li><a href="http://mentionslegales.twig.html">Mentions légales du site</a></li>
+        </ul>
+        
+        <ul>
+          <li>© GB Agency - MAC FAST | All Rights Reserved</li>
+        </ul>
+        
+          <ul>
+          <li><a href="http://www.mangerbouger.fr/">Pour votre santé, mangez au moins cinq fruits et légumes par jour | mangerbouger.fr</a></li>
         </ul>
         {% endblock %}
       </footer>

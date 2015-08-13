@@ -35,12 +35,12 @@ $app->get('/', function () use ($app) {
 
 /**
  * @category Controlleur
- * Controller de la page de jeu
+ * Controller de la page de jeu / affichage des cadeaux
  */
 $app->get('/jouer', function () use ($app) {
-  return $app['twig']->render('jouer_form.twig.html', array());
+  return $app['twig']->render('jouer_form.twig.html', array()); // retourne un tableau pour le formulaire
 });
-$app->post('/jouer', function (Request $request) use ($app) {
+$app->post('/jouer', function (Request $request) use ($app) { // récupère les données utilisateurs
   if ($request->get('user')) {
     $name = $request->get('name');
     $firstname = $request->get('firstname');
@@ -48,7 +48,7 @@ $app->post('/jouer', function (Request $request) use ($app) {
     $telephone = $request->get('telephone');
     if ($app['user.save']($name, $firstname, $email, $telephone)) {
       return $app['twig']->render('jouer_code.twig.html', array());
-    }
+    }// vérification des données utilisateur et code d'erreur si déjà enregistré
     return $app['twig']->render('jouer_form.twig.html', array('error' => 'Ce mail est déjà utilisé'));
   } else if (!empty($request->get('code'))) {
     $cadeau = $app['cadeau.get']($request->get('code'));
@@ -59,7 +59,7 @@ $app->post('/jouer', function (Request $request) use ($app) {
 
 /**
  * @category Controller
- * Controller de la gallerie de cadeaux
+ * Controller de la gallerie de cadeaux / informations cadeaux
  */
 $app->get('/cadeaux', function () use ($app) {
   return $app['twig']->render('cadeaux.twig.html', array(

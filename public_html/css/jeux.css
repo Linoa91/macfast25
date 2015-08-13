@@ -1,3 +1,7 @@
+.container{
+  height:500px;
+  background-color: #ffffff;
+}
 #jeux_formulaire, #jouer_code, #recompense {
   background-color: #e7e8ea;
   margin: 20px auto;
@@ -34,13 +38,14 @@
 
 #jeux_formulaire form input[type="submit"] {
   display: block;
-  background-color: green;
+  background-color: #63a531;
   font-size: xx-large;
   font-family: "Caviar", Verdana, SansSerif;
   float: right;
   height: 50px;
   width: 200px;
   margin: 10px;
+  margin-top:45px;
 }
 
 #jouer_code input[name="code"] {
