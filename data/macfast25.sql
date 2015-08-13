@@ -1,4 +1,4 @@
-CREATE DATABASE macfast25;
+CREATE DATABASE IF NOT EXISTS macfast25;
 
 USE macfast25;
 

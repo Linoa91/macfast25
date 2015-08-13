@@ -41,8 +41,8 @@ class Visiteur {
  * @return vrai si tout c'est bien passé
  */
 function enregistrerUtilisateur($name, $firstname, $email, $telephone) {
-  if (Visiteur::verifierSiNouveau(strtolower($email))) {
-    $user = new Visiteur(strtolower($email), $name, $firstname, $telephone);
+  $user = new Visiteur(strtolower($email), $name, $firstname, $telephone);
+  if ($user->verifierSiNouveau(strtolower($email))) {
     return $user->enregistrer();
   }
   return false;

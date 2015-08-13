@@ -162,6 +162,7 @@ nav > a {
 */
 a.btn.facebook       { background-image: url(/images/boutons/facebook_N.png); }
 a.btn.facebook:hover { background-image: url(/images/boutons/facebook_H.png); }
+
 a.btn.twitter       { background-image: url(/images/boutons/twitter_N.png); }
 a.btn.twitter:hover { background-image: url(/images/boutons/twitter_H.png); }
 a.btn.gplus       { background-image: url(/images/boutons/google+_N.png); }

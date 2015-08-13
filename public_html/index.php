@@ -19,9 +19,12 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
   'twig.path' => __DIR__.'/templates',
 ));
 
-$app['user.save'] = enregistrerUtilisateur;
-// $app['cadeau.get'] = Cadeau::recupererCadeau;
-$app['cadeau.get'] = recupererCadeau;
+$app['user.save'] = $app->protect(function($name, $firstname, $email, $telephone) {
+  return enregistrerUtilisateur($name, $firstname, $email, $telephone);
+});
+$app['cadeau.get'] = $app->protect(function($code) {
+  return Cadeau::recuperer($code);
+});
 
 /**
  * Controller de la page d'accueil
@@ -46,11 +49,12 @@ $app->post('/jouer', function (Request $request) use ($app) {
     $firstname = $request->get('firstname');
     $email = $request->get('email');
     $telephone = $request->get('telephone');
+    $SaveUser = $app['user.save'];
     if ($app['user.save']($name, $firstname, $email, $telephone)) {
       return $app['twig']->render('jouer_code.twig.html', array());
     }
     return $app['twig']->render('jouer_form.twig.html', array('error' => 'Ce mail est déjà utilisé'));
-  } else if (!empty($request->get('code'))) {
+  } else if (!$request->get('code')) {
     $cadeau = $app['cadeau.get']($request->get('code'));
     return $app['twig']->render('jouer_recompense.twig.html', array('cadeau' => $cadeau));
   }
