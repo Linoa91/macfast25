@@ -1,3 +1,4 @@
 Options +FollowSymlinks
 RewriteEngine On
-RewriteRule	^jouer$	index.php	[L]	
+RewriteBase /macfast25
+#RewriteRule	^jouer$	index.php	[L]	
