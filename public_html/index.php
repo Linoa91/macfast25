@@ -7,20 +7,13 @@ require_once __DIR__.'/../services/cadeau.php';
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-// $link = mysql_connect('localhost', 'root', '') or die('Impossible de sélectionner la base de données');
-// mysql_select_db('macfast25') or die('Impossible de sélectionner la base de données');
-// $query = 'SELECT * FROM cadeaux';
-// $result = mysql_query($query) or die('Échec de la requête : ' . mysql_error());
-// mysql_close($link);
-// var_dump($result);
 $app = new Silex\Application();
-$app['debug'] = true;
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
   'twig.path' => __DIR__.'/templates',
 ));
 
-$app['user.save'] = $app->protect(function($name, $firstname, $email, $telephone) {
-  return enregistrerUtilisateur($name, $firstname, $email, $telephone);
+$app['user.save'] = $app->protect(function($name, $firstname, $email, $telephone, $abonNewsletter, $offrePartenaire) {
+  return enregistrerUtilisateur($name, $firstname, $email, $telephone, $abonNewsletter, $offrePartenaire);
 });
 $app['cadeau.get'] = $app->protect(function($code) {
   return Cadeau::recuperer($code);
@@ -50,11 +43,13 @@ $app->post('/jouer', function (Request $request) use ($app) { // récupère les 
     $email = $request->get('email');
     $telephone = $request->get('telephone');
     $SaveUser = $app['user.save'];
-    if ($app['user.save']($name, $firstname, $email, $telephone)) {
+    $offrePartenaire = $request->get('offre_partenaire');
+    $abonNewsletter = $request->get('abon_newsletter');
+    if ($SaveUser($name, $firstname, $email, $telephone, $abonNewsletter, $offrePartenaire)) {
       return $app['twig']->render('jouer_code.twig.html', array());
     }// vérification des données utilisateur et code d'erreur si déjà enregistré
     return $app['twig']->render('jouer_form.twig.html', array('error' => 'Ce mail est déjà utilisé'));
-  } else if (!$request->get('code')) {
+  } else if (!$request->get('code_verif')) {
     $cadeau = $app['cadeau.get']($request->get('code'));
     return $app['twig']->render('jouer_recompense.twig.html', array('cadeau' => $cadeau));
   }
@@ -110,6 +105,14 @@ $app->get('/cadeaux', function () use ($app) {
       ),
     )
   ));
+});
+
+/**
+ * @category Controller
+ * Controller de la gallerie de cadeaux / informations cadeaux
+ */
+$app->get('/carte', function () use ($app) {
+  return $app['twig']->render('carte.twig.html');
 });
 
 $app->run();

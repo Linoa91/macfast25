@@ -3,10 +3,12 @@
 class Cadeau {
   public $nom;
   private $coupon;
+  private $type;
 
-  function Cadeau($nom, $coupon) {
+  function Cadeau($nom, $coupon, $type) {
     $this->nom = $nom;
     $this->coupon = $coupon;
+    $this->type = $type;
   }
   
   
@@ -15,10 +17,8 @@ class Cadeau {
    * @return retourne le cadeau correspondant, si le code ne correspond à aucun cadeau NULL est retourné
    */
   public function recuperer($code) {
-    $cadeaux = array(
-      'aaaaaaaa' => new Cadeau('Voyages à New York', 'coup42')
-    );
-    return $cadeaux[$code];
+    $res = query("SELECT nom, coupon as nb FROM users WHERE code_activation = '$code'");
+    return new Cadeau($res['nom'], $res['coupon'], NULL);
   }
 }
 

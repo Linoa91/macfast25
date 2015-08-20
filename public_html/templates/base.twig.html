@@ -2,7 +2,7 @@
 <html lang="fr">
   <head>
     <meta name="description" content="Site vitrine jeux concours pour projet fin d'année F2I">
-    <base href="http://localhost/macfast/" target="_blank">
+<!--     <base href="http://localhost/macfast/" target="_blank"> -->
     <meta charset="utf-8">
     <title>Mac Fast 25 ans</title>
     <!-- Feuille de reset css conseillé par Alsacréation (http://www.alsacreations.com/astuce/lire/36-reset-css.html) -->
@@ -18,6 +18,14 @@
 
   </head>
   <body >
+     <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
     <div class="container">
       <header>
         <div id="menu">
@@ -33,12 +41,13 @@
       <nav>
         <a href="/index.php/jouer#jeux_formulaire" class="btn round"><img alt="jouer" src="/images/boutons/picto_jeu.png"/></a>
         <a href="/index.php/cadeaux#cadeaux" class="btn round"><img alt="cadeaux" src="/images/boutons/picto_cado.png"/></a>
-        <a href="#noustrouver" class="btn round"><img alt="nous trouver" src="/images/boutons/picto_localisation.png"/></a>
+        <a href="/index.php/carte#noustrouver" class="btn round"><img alt="nous trouver" src="/images/boutons/picto_localisation.png"/></a>
       </nav>
       <main>
         {% block main %}{% endblock %}
       </main>
       <footer>
+        <div id="p" class="fb-page" data-href="https://www.facebook.com/pages/Mac-Fast/481720375337691" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/pages/Mac-Fast/481720375337691"><a href="https://www.facebook.com/pages/Mac-Fast/481720375337691">Mac Fast</a></blockquote></div></div>
         {% block footer %}
         <ul id="liens">
           <li><a href="#">Plan du site | </a></li>

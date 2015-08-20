@@ -4,7 +4,8 @@ body {
   background-image: url(/images/site-background.jpg);
   background-repeat: no-repeat;
   background-position: top center;
-  background-size: 100% 100%;
+  background-size: 100%;
+  background-attachment: fixed;
   font-family: "CenturyGothic", Verdana, SansSerif;
 }
 
@@ -247,7 +248,7 @@ ul{
   margin: auto;
 }
 
-@media screen and (max-width: 579px) {
+@media (max-width: 579px) {
   .container { width: 90%; }
   nav {
     flex-direction: column;
@@ -258,7 +259,7 @@ ul{
     height: 50px;
   }
 }
-@media screen and (max-width: 720px) {
+@media (max-width: 720px) {
   nav > a {
     width: 145px;
     height: 145px;
@@ -268,4 +269,3 @@ ul{
     height: 100px;
   }
 }
-

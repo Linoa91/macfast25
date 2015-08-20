@@ -1,0 +1,18 @@
+{% extends "base.twig.html" %}
+
+{% block css_links %}
+<style>
+  #maps {
+    margin: auto;
+    width: 100%;
+    height: 480px;
+  }
+</style>
+{% endblock %}
+
+{% block main %}
+				<section class="container">
+          <iframe id="maps" src="https://www.google.com/maps/d/u/0/embed?mid=zOUkX_Zoinuk.k1qLFhZgz9vY" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </section>
+{% endblock %}
+

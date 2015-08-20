@@ -9,17 +9,29 @@ class Visiteur {
   public $prenom;
   private $telephone;
   protected $codeParticipation;
+  private $abonNewsletter;
+  private $offrePartenaire;
 
-  function Visiteur($email, $nom, $prenom, $telephone) {
+  function Visiteur($email, $nom, $prenom, $telephone, $abonNewsletter, $offrePartenaire) {
     $this->email = $email;
     $this->nom = $nom;
     $this->prenom = $prenom;
     $this->telephone = $telephone;
+    $this->abonNewsletter = $abonNewsletter;
+    $this->offrePartenaire = $offrePartenaire;
   }
 
   public function enregistrer() {
-    $query = "INSERT INTO users (email, nom, prenom, telephone)".
-        " VALUES ('$this->email', '$this->nom', '$this->prenom', '$this->telephone');";
+    $abonNewsletter = '0'; // Faux
+    if ($this->abonNewsletter === true) {
+      $abonNewsletter = '1'; // Vrai
+    }
+    $offrePartenaire = '0'; // Faux
+    if ($this->offrePartenaire === true) {
+      $offrePartenaire = '1'; // Vrai
+    }
+    $query = "INSERT INTO users (email, nom, prenom, telephone, newsletter, offre_partenaires)".
+        " VALUES ('$this->email', '$this->nom', '$this->prenom', '$this->telephone', '$abonNewsletter', '$offrePartenaire');";
     $res = execute($query);
     return $res;
   }
@@ -40,8 +52,14 @@ class Visiteur {
  * Vérifie que l'utilisateur n'existe pas et l'enregistre en base de données
  * @return vrai si tout c'est bien passé
  */
-function enregistrerUtilisateur($name, $firstname, $email, $telephone) {
-  $user = new Visiteur(strtolower($email), $name, $firstname, $telephone);
+function enregistrerUtilisateur($name, $firstname, $email, $telephone, $abonNewsletter, $offrePartenaire) {
+  $abon = false;
+  if ($abonNewsletter !== NULL)
+    $abon = true;
+  $offre = false;
+  if ($offrePartenaire !== NULL)
+    $offre = true;
+  $user = new Visiteur(strtolower($email), $name, $firstname, $telephone, $abon, $offre);
   if ($user->verifierSiNouveau(strtolower($email))) {
     return $user->enregistrer();
   }
