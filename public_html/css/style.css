@@ -4,7 +4,7 @@ body {
   background-image: url(/images/site-background.jpg);
   background-repeat: no-repeat;
   background-position: top center;
-  background-size: 100%;
+  background-size: auto 100vh;
   background-attachment: fixed;
   font-family: "CenturyGothic", Verdana, SansSerif;
 }
@@ -20,12 +20,12 @@ h1 {
   text-align:center;
   margin: auto;
   padding: 15px;
-  width:500px;
+  /*width:500px;*/
 }
 h2 {
   font-size: 19pt;
   color: #545454;
-  	font-family: "Caviar", Verdana, SansSerif;
+	font-family: "Caviar", Verdana, SansSerif;
   text-align:center;
   padding: 5px;
 }
@@ -124,6 +124,7 @@ header {
   height: 100%;
   display: block;
   margin: auto;
+  width: 100%;
 }
 
 /**
@@ -131,47 +132,6 @@ header {
 */
 
 
-/** COMPTEUR **/
-.countdownHolder{
-font: 40px/1.5 ‘Open Sans Condensed’,sans-serif;
-}
-.digit.static {
-// Permet d’ajouter une ombre portée sur n’importe quel élément HTML
-box-shadow:1px 1px 1px rgba(4, 4, 4, 0.35);
-// La valeur linear-gradient de la propriété background-image permet de générer
-// des arrière-plans de couleur dégradée, d’une couleur à l’autre ou via plusieurs
-// couleurs intermédiaires
-// La notation est la suivante : (orientation du dégradé (top/right/bottom/left),
-//	couleurs (position en %))
-background-image: linear-gradient(bottom, #3A3A3A 50%, #444444 50%);
-background-image: -o-linear-gradient(bottom, #3A3A3A 50%, #444444 50%);
-background-image: -moz-linear-gradient(bottom, #3A3A3A 50%, #444444 50%);
-background-image: -webkit-linear-gradient(bottom, #3A3A3A 50%, #444444 50%);
-background-image: -ms-linear-gradient(bottom, #3A3A3A 50%, #444444 50%);
-
-background-image: -webkit-gradient(
-linear,
-left bottom,
-left top,
-color-stop(0.5, #3A3A3A),
-color-stop(0.5, #444444)
-);
-}
-
-.digit{
-position:absolute;
-display:block;
-width:1em;
-background-color:#444;
-border-radius:0.2em;
-text-align:center;
-// couleur des chiffres
-color:#fff;
-letter-spacing:-1px;
-}
-
-
-/**FIN COMPTEUR**/
 
 footer {
   background: #61a531;
@@ -239,7 +199,7 @@ footer #liens {
 ul#liens {
   list-style: none;
   display: flex;
-  width:750px;
+  /*width:750px;*/
 }
 
 ul{
@@ -248,7 +208,9 @@ ul{
   margin: auto;
 }
 
-@media (max-width: 579px) {
+
+
+@media handheld, only screen and (max-width: 580px), only screen and (max-device-width: 580px) {
   .container { width: 90%; }
   nav {
     flex-direction: column;
@@ -259,7 +221,8 @@ ul{
     height: 50px;
   }
 }
-@media (max-width: 720px) {
+
+@media only screen and (max-width: 720px), only screen and (max-device-width: 720px) and (min-device-width: 581px)  {
   nav > a {
     width: 145px;
     height: 145px;

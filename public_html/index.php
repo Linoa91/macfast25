@@ -1,6 +1,8 @@
 <?php
+session_start();
 // web/index.php
 require_once __DIR__.'/../vendor/autoload.php';
+require_once __DIR__.'/../services/mail.php';
 require_once __DIR__.'/../services/user.php';
 require_once __DIR__.'/../services/cadeau.php';
 
@@ -18,6 +20,10 @@ $app['user.save'] = $app->protect(function($name, $firstname, $email, $telephone
 $app['cadeau.get'] = $app->protect(function($code) {
   return recupererCadeau($code);
 });
+$app['mail.send'] = $app->protect(function($coupon, $user) {
+  return envoyerCouponCadeaux($coupon, $user);
+});
+
 
 /**
  * Controller de la page d'accueil
@@ -34,10 +40,13 @@ $app->get('/', function () use ($app) {
  * Controller de la page de jeu / affichage des cadeaux
  */
 $app->get('/jouer', function () use ($app) {
-  return $app['twig']->render('jouer_form.twig.html', array()); // retourne un tableau pour le formulaire
+  return $app['twig']->render('jouer_code.twig.html', array()); // retourne un tableau pour le formulaire
 });
-$app->post('/jouer', function (Request $request) use ($app) { // récupère les données utilisateurs
-  if ($request->get('user')) {
+$app->post('/jouer', function (Request $request) use ($app, $_SESSION) { // récupère les données utilisateurs
+  if ($request->get('code_verif')) {
+    $_SESSION['coupon'] = $request->get('code');
+    return $app['twig']->render('jouer_form.twig.html', array());
+  } else if ($request->get('user')) {
     $name = $request->get('name');
     $firstname = $request->get('firstname');
     $email = $request->get('email');
@@ -45,15 +54,17 @@ $app->post('/jouer', function (Request $request) use ($app) { // récupère les 
     $SaveUser = $app['user.save'];
     $offrePartenaire = $request->get('offre_partenaire');
     $abonNewsletter = $request->get('abon_newsletter');
-    if ($SaveUser($name, $firstname, $email, $telephone, $abonNewsletter, $offrePartenaire)) {
-      return $app['twig']->render('jouer_code.twig.html', array());
+    $user = $SaveUser($name, $firstname, $email, $telephone, $abonNewsletter, $offrePartenaire);
+    if ($user != null) {
+      $cadeau = $app['cadeau.get']($_SESSION['coupon']);
+      if ($cadeau != null && $cadeau->type != "MUS") {
+        $app['mail.send']($cadeau->coupon, $user);
+      }
+      return $app['twig']->render('jouer_recompense.twig.html', array('cadeau' => $cadeau));
     }// vérification des données utilisateur et code d'erreur si déjà enregistré
     return $app['twig']->render('jouer_form.twig.html', array('error' => 'Ce mail est déjà utilisé'));
-  } else if ($request->get('code_verif')) {
-    $cadeau = $app['cadeau.get']($request->get('code'));
-    return $app['twig']->render('jouer_recompense.twig.html', array('cadeau' => $cadeau));
   }
-  return $app['twig']->render('jouer_form.twig.html', array());
+  return $app['twig']->render('jouer_code.twig.html', array());
 });
 
 /**

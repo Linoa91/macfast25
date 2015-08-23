@@ -11,7 +11,11 @@
           <h2>Gagné !</h2>
           <p>Vous remportez <br /> un {{ cadeau.nom }}</p>
           <img />
-          <span class="info_mode_reception">Vous aller recevoir votre code d'activation par mail et SMS</span>
+          {% if cadeau.type == "MUS" %}
+               <a href="https://www.itunes.com" class="info_mode_reception">Clickez sur le lien pour télécharger votre musique</a>
+          {% else %}
+               <span class="info_mode_reception">Vous aller recevoir votre code d'activation par mail et SMS</span>
+          {% endif %}
           {% else %}
           <h2>Vous avez perdu</h2>
           <img />

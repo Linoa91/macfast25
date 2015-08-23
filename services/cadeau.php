@@ -2,8 +2,8 @@
 
 class Cadeau {
   public $nom;
-  private $coupon;
-  private $type;
+  public $coupon;
+  public $type;
 
   function Cadeau($nom, $coupon, $type) {
     $this->nom = $nom;
@@ -17,9 +17,9 @@ class Cadeau {
    * @return retourne le cadeau correspondant, si le code ne correspond à aucun cadeau NULL est retourné
    */
   public static function recuperer($code) {
-    $res = query("SELECT nom, coupon FROM cadeaux WHERE code_activation = '$code'");
+    $res = query("SELECT cadeaux.nom, coupon, type_cadeau FROM cadeaux LEFT JOIN users ON users.code_participation = cadeaux.code_activation WHERE email IS NULL AND code_activation = '$code'");
     if ($res == null) return null;
-    return new Cadeau($res['nom'], $res['coupon'], NULL);
+    return new Cadeau($res['nom'], $res['coupon'], $res['type_cadeau']);
   }
 }
 

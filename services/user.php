@@ -19,6 +19,7 @@ class Visiteur {
     $this->telephone = $telephone;
     $this->abonNewsletter = $abonNewsletter;
     $this->offrePartenaire = $offrePartenaire;
+    $this->codeParticipation = $_SESSION['coupon'];
   }
 
   public function enregistrer() {
@@ -30,8 +31,8 @@ class Visiteur {
     if ($this->offrePartenaire === true) {
       $offrePartenaire = '1'; // Vrai
     }
-    $query = "INSERT INTO users (email, nom, prenom, telephone, newsletter, offre_partenaires)".
-        " VALUES ('$this->email', '$this->nom', '$this->prenom', '$this->telephone', '$abonNewsletter', '$offrePartenaire');";
+    $query = "INSERT INTO users (email, nom, prenom, telephone, newsletter, offre_partenaires, code_participation)".
+        " VALUES ('$this->email', '$this->nom', '$this->prenom', '$this->telephone', '$abonNewsletter', '$offrePartenaire', '$this->codeParticipation');";
     $res = execute($query);
     return $res;
   }
@@ -61,9 +62,11 @@ function enregistrerUtilisateur($name, $firstname, $email, $telephone, $abonNews
     $offre = true;
   $user = new Visiteur(strtolower($email), $name, $firstname, $telephone, $abon, $offre);
   if ($user->verifierSiNouveau(strtolower($email))) {
-    return $user->enregistrer();
+    if ($user->enregistrer()) {
+      return $user;
+    }
   }
-  return false;
+  return NULL;
 }
 
 ?>

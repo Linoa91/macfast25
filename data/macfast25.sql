@@ -25,7 +25,8 @@ create table cadeaux (
 INSERT INTO cadeaux
   (nom, type_cadeau, code_activation, coupon)
 VALUES
-  ('1 voyages à New York', '', '29d35aeb', '20d7ffe1'), 
-  ('1 week end à Paris',   '', '6d10a01f', 'bb9629c7'),
-  ('1 IPhone 6',           '', 'aaf4ae1b', 'cc12d0fe'),
-  ('1 goodie',             '', '26d37aea', '20b7afe9');
+  ('1 voyages à New York',              '', '29d35aeb', '20d7ffe1'), 
+  ('1 week end à Paris',                '', '6d10a01f', 'bb9629c7'),
+  ('1 IPhone 6',                        '', 'aaf4ae1b', 'cc12d0fe'),
+  ('1 musique à télécharger',           'MUS', 'b134ae2c', 'https://www.itunes.com'),
+  ('1 goodie',                          '', '26d37aea', '20b7afe9');
