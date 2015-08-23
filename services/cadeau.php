@@ -16,8 +16,9 @@ class Cadeau {
    * Recupère le cadeaux correspondant au code
    * @return retourne le cadeau correspondant, si le code ne correspond à aucun cadeau NULL est retourné
    */
-  public function recuperer($code) {
-    $res = query("SELECT nom, coupon as nb FROM users WHERE code_activation = '$code'");
+  public static function recuperer($code) {
+    $res = query("SELECT nom, coupon FROM cadeaux WHERE code_activation = '$code'");
+    if ($res == null) return null;
     return new Cadeau($res['nom'], $res['coupon'], NULL);
   }
 }

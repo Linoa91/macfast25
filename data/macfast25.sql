@@ -23,7 +23,7 @@ create table cadeaux (
 );
 
 INSERT INTO cadeaux
-  (nom, type, code_activation, coupon)
+  (nom, type_cadeau, code_activation, coupon)
 VALUES
   ('1 voyages à New York', '', '29d35aeb', '20d7ffe1'), 
   ('1 week end à Paris',   '', '6d10a01f', 'bb9629c7'),

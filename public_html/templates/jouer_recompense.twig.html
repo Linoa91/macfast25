@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block main %}
-				<section id="recompense" class="container {% if cadeau %}gagne{% else %}perdu{% endif %}">
+	<section id="recompense" class="container {% if cadeau %}gagne{% else %}perdu{% endif %}">
           {% if cadeau %}
           <h2>Gagné !</h2>
           <p>Vous remportez <br /> un {{ cadeau.nom }}</p>
@@ -16,5 +16,5 @@
           <h2>Vous avez perdu</h2>
           <img />
           {% endif %}
-				</section>
+	</section>
 {% endblock %}

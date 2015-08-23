@@ -16,7 +16,7 @@ $app['user.save'] = $app->protect(function($name, $firstname, $email, $telephone
   return enregistrerUtilisateur($name, $firstname, $email, $telephone, $abonNewsletter, $offrePartenaire);
 });
 $app['cadeau.get'] = $app->protect(function($code) {
-  return Cadeau::recuperer($code);
+  return recupererCadeau($code);
 });
 
 /**
@@ -49,7 +49,7 @@ $app->post('/jouer', function (Request $request) use ($app) { // récupère les 
       return $app['twig']->render('jouer_code.twig.html', array());
     }// vérification des données utilisateur et code d'erreur si déjà enregistré
     return $app['twig']->render('jouer_form.twig.html', array('error' => 'Ce mail est déjà utilisé'));
-  } else if (!$request->get('code_verif')) {
+  } else if ($request->get('code_verif')) {
     $cadeau = $app['cadeau.get']($request->get('code'));
     return $app['twig']->render('jouer_recompense.twig.html', array('cadeau' => $cadeau));
   }

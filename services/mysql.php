@@ -5,6 +5,7 @@ function query($query) {
   if ($mysqli->connect_errno)
     die('Impossible de sélectionner la base de données : ' . $mysqli->connect_error);
   $result = $mysqli->query($query);
+  if (!$result) return null;
   $res = $result->fetch_assoc();
   $result->close();
   $mysqli->close();
