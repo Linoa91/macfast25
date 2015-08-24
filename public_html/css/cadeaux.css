@@ -37,7 +37,7 @@
   font-weight: bold;
 }
 
-@media screen and (max-width: 579px) {
+@media only screen and (max-width: 720px), only screen and (max-device-width: 720px) and (min-device-width: 581px) {
   #cadeaux ul li img { flex: 1}
   #cadeaux ul li { flex: 100%; }
 }

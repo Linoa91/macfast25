@@ -44,24 +44,45 @@
         <a href="/index.php/carte#noustrouver" class="btn round"><img alt="nous trouver" src="/images/boutons/picto_localisation.png"/></a>
       </nav>
       <main>
-        {% block main %}{% endblock %}
+        {% block main %}
+        <section>
+          {{ include('counter.twig.html') }}
+        </section>
+        {% endblock %}
+
+        <div id="footer">
+          <div id="partenaires">
+          <div>
+            <a href="#"><img src="/images/logo_partenaires/google.jpg" /></a>
+            <a href="#"><img src="/images/logo_partenaires/coca_cola.jpg" /></a>
+            <a href="#"><img src="/images/logo_partenaires/danone.jpg" /></a>
+            <a href="#"><img src="/images/logo_partenaires/red_bull.jpg" /></a>
+            <a href="#"><img src="/images/logo_partenaires/ugc.jpg" /></a>
+          </div>
+          <div>
+            <a href="#"><img src="/images/logo_partenaires/ratp.jpg" /></a>
+            <a href="#"><img src="/images/logo_partenaires/sncf.jpg" /></a>
+            <a href="#"><img src="/images/logo_partenaires/20_munites.jpg" /></a>
+            <a href="#"><img src="/images/logo_partenaires/direct_matin.jpg" /></a>
+            <a href="#"><img src="/images/logo_partenaires/le_parisien.jpg" /></a>
+            </div>
+          </div>
+          <div id="p" class="fb-page" data-href="https://www.facebook.com/pages/Mac-Fast/481720375337691" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/pages/Mac-Fast/481720375337691"><a href="https://www.facebook.com/pages/Mac-Fast/481720375337691">Mac Fast</a></blockquote></div></div>
+        </div>
       </main>
       <footer>
-        <div id="p" class="fb-page" data-href="https://www.facebook.com/pages/Mac-Fast/481720375337691" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/pages/Mac-Fast/481720375337691"><a href="https://www.facebook.com/pages/Mac-Fast/481720375337691">Mac Fast</a></blockquote></div></div>
         {% block footer %}
         <ul id="liens">
-          <li><a href="#">Plan du site | </a></li>
-          <li><a href="http://reglement_jeu.twig.html">Reglement du jeu | </a></li>
-          <li><a href="http://condition_general.twig.html">Conditions Générales d'utilisation | </a></li>
-          <li><a href="http://mentionslegales.twig.html">Mentions légales du site</a></li>
+          <li><a href="#">Plan du site</a></li>
+          <li><a href="/index.php/reglement_jeu">Reglement du jeu</a></li>
+          <li><a href="/index.php/condition_general">Conditions Générales d'utilisation</a></li>
+          <li><a href="/index.php/mentionslegales">Mentions légales du site</a></li>
         </ul>
         
-        <ul>
+        <ul id="plop">
           <li>© GB Agency - MAC FAST | All Rights Reserved</li>
-        </ul>
-        
-          <ul>
-          <li><a href="http://www.mangerbouger.fr/">Pour votre santé, mangez au moins cinq fruits et légumes par jour | mangerbouger.fr</a></li>
+          <li><a href="http://www.mangerbouger.fr/">Pour votre santé, mangez au moins cinq fruits et légumes par jour | mangerbouger.fr</a>
+          </li>
         </ul>
         {% endblock %}
       </footer>

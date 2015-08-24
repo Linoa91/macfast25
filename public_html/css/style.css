@@ -4,7 +4,7 @@ body {
   background-image: url(/images/site-background.jpg);
   background-repeat: no-repeat;
   background-position: top center;
-  background-size: auto 100vh;
+  background-size: cover;
   background-attachment: fixed;
   font-family: "CenturyGothic", Verdana, SansSerif;
 }
@@ -190,6 +190,7 @@ nav a:hover {
  * Footer
  */
 footer #liens {
+  margin: auto;
   text-align: center;
   vertical-align: middle;
   font-family: "CenturyGothic", Verdana, SansSerif;
@@ -199,16 +200,68 @@ footer #liens {
 ul#liens {
   list-style: none;
   display: flex;
-  /*width:750px;*/
+  flex-flow: row wrap;
+  width:75%;
 }
 
-ul{
+#liens li:not(:last-child):after {
+  content: "|";
+}
+
+/*ul{
   vertical-align: middle;
   display: flex;
   margin: auto;
+}*/
+
+#footer {
+  margin: 20px auto;
+  width: 85%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "CenturyGothic", Verdana, SansSerif;
+  font-size:12px;
 }
 
+#countdownTitre {
+  text-align: center;
+  font-family: "Caviar", Verdana, SansSerif;
+}
 
+#partenaires {
+  display: flex;
+  flex-flow: column;
+}
+
+#partenaires > div {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+#partenaires a {
+  text-decoration: none;
+  padding: 5px;
+  margin: 0;
+}
+#partenaires img {
+  max-height: 45px;
+}
+
+#plop {
+  margin-top: 10px;
+  list-style: none;
+  padding: 10px 0 0 0;
+  margin: 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+#plop a {
+  font-size: inherit;
+}
 
 @media handheld, only screen and (max-width: 580px), only screen and (max-device-width: 580px) {
   .container { width: 90%; }
@@ -223,6 +276,7 @@ ul{
 }
 
 @media only screen and (max-width: 720px), only screen and (max-device-width: 720px) and (min-device-width: 581px)  {
+  body { background-size: auto 100vh; }
   nav > a {
     width: 145px;
     height: 145px;
@@ -231,4 +285,11 @@ ul{
     width: 100px;
     height: 100px;
   }
+
+  #liens li {
+    flex: 100%;
+  }
+  #liens li:not(:last-child):after {
+  content: "";
+}
 }

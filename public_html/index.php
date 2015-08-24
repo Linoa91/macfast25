@@ -126,5 +126,29 @@ $app->get('/carte', function () use ($app) {
   return $app['twig']->render('carte.twig.html');
 });
 
+
+/**
+ * @category Controller
+ * Controller des mentionslegales
+ */
+$app->get('/mentionslegales', function () use ($app) {
+  return $app['twig']->render('mentionslegales.twig.html');
+});
+
+/**
+ * @category Controller
+ * Controller des mentionslegales
+ */
+$app->get('/reglement_jeu', function () use ($app) {
+  return $app['twig']->render('reglement_jeu.twig.html');
+});
+
+/**
+ * @category Controller
+ * Controller des mentionslegales
+ */
+$app->get('/condition_general', function () use ($app) {
+  return $app['twig']->render('condition_general.twig.html');
+});
 $app->run();
 ?>
