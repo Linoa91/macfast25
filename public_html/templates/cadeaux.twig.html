@@ -11,7 +11,7 @@
           <ul id="galery">
             {% for cadeau in cadeaux %}
             <li>
-              <img src="/images/cadeaux/{{ cadeau.img }}"/>
+              <img src="/images/cadeaux/{{ cadeau.img }}" alt="{{ cadeau.alt }}" />
               <p>
                 <span class="nom_cadeau">{{ cadeau.nom }}</span>
                 {{ cadeau.description }}

@@ -77,42 +77,50 @@ $app->get('/cadeaux', function () use ($app) {
       array(
         'nom' => '5 voyages à New York',
         'description' => 'Laissez-vous surprendre par la demesure de "Big Apple", la ville qui ne dort jamais ; une ville environnante qui fascnie par son énergie débordante.',
-        'img' => 'new_york.jpg'
+        'img' => 'new_york.jpg',
+        'alt' => 'cadeau new york'
       ),
       array(
         'nom' => '15 weeks end à Paris',
         'description' => 'Paris est la capitale ;ondiale de la mode, de la culture, de l\'art, de la gastronomie... bref, une destination à ne manquer sous aucun prétexte.',
-        'img' => 'paris.jpg'
+        'img' => 'paris.jpg',
+        'alt' => 'cadeau paris'
       ),
       array(
         'nom' => '50 IPhone 6',
         'description' => 'Plus large, mais beaucoup plus fin< Plus puissant, mais remarquablement économe en énergie. Sous son design profilé s\'opère une fusion parfaite entre matériel et logiciel.',
-        'img' => 'iphone.jpg'
+        'img' => 'iphone.jpg',
+        'alt' => 'cadeau iphone6'
       ),
       array(
         'nom' => '50 Samsung Galaxy S5',
         'description' => 'en tant que smartphone propulsé sur le terrain, resserré, du haut de gamme, le GS5, résistant à l\'eau et à la poussière, affiche des caractéristiques techniques haut de gamme.',
-        'img' => 'galaxy_s5.jpg'
+        'img' => 'galaxy_s5.jpg',
+        'alt' => 'cadeau galaxy s5'
       ),
       array(
         'nom' => '1 Suzuki Swift 3 Sport',
         'description' => 'Le look sportif, c’est avant tout une question d’attitude. Et la Swift n’en manque pas. Homogène, elle offre des vraies sensations de sportive, tout en restant parfaitement civilisée au quotidien.',
-        'img' => 'voiture.jpg'
+        'img' => 'voiture.jpg',
+        'alt' => 'cadeau swift sport'
       ),
       array(
         'nom' => '2 000 places de cinéma UGC',
         'description' => 'Profiter des meilleurs films du moment avec votre pass solo.',
-        'img' => 'ugc.jpg'
+        'img' => 'ugc.jpg',
+        'alt' => 'cadeau place de cinéma'
       ),
       array(
         'nom' => '5 000 téléchagements musique',
         'description' => 'Télécharger votre musique préférée avec votre code promo, c’est gratuit.',
-        'img' => 'musique.jpg'
+        'img' => 'musique.jpg',
+        'alt' => 'cadeau téléchargement musique'
       ),
       array(
         'nom' => '30 000 goodies',
         'description' => 'Des milliers de cadeaux aux couleurs de MAC FAST qui vous accompagnerons parout.',
-        'img' => 'goodies.jpg'
+        'img' => 'goodies.jpg',
+        'alt' => 'cadeau goodies'
       ),
     )
   ));

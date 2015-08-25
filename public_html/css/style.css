@@ -1,3 +1,6 @@
+/**
+ *  COMMUN A TOUT LES FICHIERS
+ */
 body {
   margin: auto;
   padding: 0px;
@@ -14,14 +17,15 @@ fieldset {
 }
 
 h1 {
-  font-size: 32pt;
+  font-size: 3vw;
   font-family: "Caviar", Verdana, SansSerif;
-  color: #61a531; /* #e76713 */
+  color: #61a531;
   text-align:center;
   margin: auto;
   padding: 15px;
   width:500px;
 }
+
 h2 {
   font-size: 19pt;
   color: #545454;
@@ -29,6 +33,7 @@ h2 {
   text-align:center;
   padding: 5px;
 }
+
 h2.jeu {
   font-size: 36pt;
   color: #000000;
@@ -71,19 +76,75 @@ a.btn {
 }
 
 /**
-* Contenu de l'entete
-*/
-#menu {
-  /*position: relative;
-  left: 863px;*/
-float: right;
-  margin-top:5px;
-  margin-right:3px;
+ *  FIN : COMMUN A TOUT LES FICHIERS
+ */
+
+/**
+ * CONTENU DE L'ENTETE
+ */
+
+#logomacfast {
+  width: 15vw;
+  height: 15vw;
+  overflow: hidden;
+  position: absolute;
 }
 
-#menu img {
+#logomacfast img {
+  width: 100%;
+  margin-top: calc(10%);
+}
+
+#reseauxsociaux {
+  /*position: relative;
+  left: 863px;*/
+  float: right;
+  margin-top:5px;
+  margin-right:3px;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+#reseauxsociaux img {
   height: 30px;
 }
+
+#reseauxsociaux * {
+  height: 30px;
+  width: 30px;  
+}
+
+#reseauxsociaux a.btn {
+  background-size: 100%;
+  display: inline-block;
+  background-repeat: no-repeat;
+}
+
+#reseauxsociaux > div {
+  height: 30px;
+  overflow: hidden;
+}
+
+#reseauxsociaux > div:hover {
+  height: 100px;
+}
+
+/**
+* Définitions des images des boutons
+*/
+a.btn.facebook        { background-image: url(/images/boutons/facebook_N.png); }
+a.btn.facebook:hover  { background-image: url(/images/boutons/facebook_H.png); }
+
+a.btn.twitter         { background-image: url(/images/boutons/twitter_N.png); }
+a.btn.twitter:hover   { background-image: url(/images/boutons/twitter_H.png); }
+a.btn.gplus           { background-image: url(/images/boutons/google+_N.png); }
+a.btn.gplus:hover     { background-image: url(/images/boutons/google+_H.png); }
+a.btn.lang.fr         { background-image: url(/images/boutons/picto_langue_N.png); }
+a.btn.lang.fr:hover   { background-image: url(/images/boutons/picto_langue_H.png); }
+a.btn.lang.en         { background-image: url(/images/boutons/picto_langue_N.png); }
+a.btn.lang.en:hover   { background-image: url(/images/boutons/picto_langue_H.png); }
+a.btn.lang.de         { background-image: url(/images/boutons/picto_langue_N.png); }
+a.btn.lang.de:hover   { background-image: url(/images/boutons/picto_langue_H.png); }
 
 header h3 {
   text-align: center;
@@ -91,6 +152,7 @@ header h3 {
   float: left;
   margin-left: 180px;
 }
+
 header #logomacfast {
   float: left;
   margin-left: 20px;
@@ -103,24 +165,13 @@ header {
   display: block;
 }
 
-#logomacfast {
-  width: 200px;
-  height: 200px;
-  overflow: hidden;
-  position: absolute;
-}
-#logomacfast img {
-  width: 100%;
-  margin-top: calc(10%);
-}
-
-#sub-header {
+#banner {
   margin-top: 50px;
   width: 100%;
   height: 270px;
 }
 
-#sub-header img {
+#banner img {
   height: 100%;
   display: block;
   margin: auto;
@@ -131,16 +182,6 @@ header {
 * Fin contenu de l'entete
 */
 
-
-
-footer {
-  background: #61a531;
-  vertical-align: middle;
-  font-family: "CenturyGothic", Verdana, SansSerif;
-  font-size:12px;
-  padding: 20px;
-  margin: 0px;
-}
 
 nav {
   display: flex;
@@ -157,27 +198,6 @@ nav > a {
   margin: auto;
 }
 
-#menu a.btn {
-  background-size: 100%;
-  height: 30px;
-  display: inline-block;
-  width: 30px;
-  background-repeat: no-repeat;
-}
-
-/**
-* Définitions des images des boutons
-*/
-a.btn.facebook       { background-image: url(/images/boutons/facebook_N.png); }
-a.btn.facebook:hover { background-image: url(/images/boutons/facebook_H.png); }
-
-a.btn.twitter       { background-image: url(/images/boutons/twitter_N.png); }
-a.btn.twitter:hover { background-image: url(/images/boutons/twitter_H.png); }
-a.btn.gplus       { background-image: url(/images/boutons/google+_N.png); }
-a.btn.gplus:hover { background-image: url(/images/boutons/google+_H.png); }
-a.btn.lang        { background-image: url(/images/boutons/picto_langue_N.png); }
-a.btn.lang:hover  { background-image: url(/images/boutons/picto_langue_H.png); }
-
 nav img {
   margin-top: calc(18%);
   height: 60%;
@@ -185,34 +205,6 @@ nav img {
 nav a:hover {
   background-color: #db6211;
 }
-
-/**
- * Footer
- */
-footer #liens {
-  margin: auto;
-  text-align: center;
-  vertical-align: middle;
-  font-family: "CenturyGothic", Verdana, SansSerif;
-  font-size:12px;
-}
-
-ul#liens {
-  list-style: none;
-  display: flex;
-  flex-flow: row wrap;
-  width:75%;
-}
-
-#liens li:not(:last-child):after {
-  content: "|";
-}
-
-/*ul{
-  vertical-align: middle;
-  display: flex;
-  margin: auto;
-}*/
 
 #footer {
   margin: 20px auto;
@@ -225,31 +217,58 @@ ul#liens {
   font-size:12px;
 }
 
-#countdownTitre {
-  text-align: center;
-  font-family: "Caviar", Verdana, SansSerif;
-}
-
-#partenaires {
+#footer #partenaires {
   display: flex;
   flex-flow: column;
 }
 
-#partenaires > div {
+#footer #partenaires > div {
   display: flex;
   flex-flow: row wrap;
 }
 
-#partenaires a {
+#footer #partenaires a {
   text-decoration: none;
   padding: 5px;
   margin: 0;
 }
-#partenaires img {
+
+#footer #partenaires img {
   max-height: 45px;
 }
 
-#plop {
+/**
+ * Footer
+ */
+footer {
+  background: #61a531;
+  vertical-align: middle;
+  font-family: "CenturyGothic", Verdana, SansSerif;
+  font-size:12px;
+  padding: 20px;
+  margin: 0px;
+}
+
+footer #liens {
+  margin: auto;
+  text-align: center;
+  vertical-align: middle;
+  font-family: "CenturyGothic", Verdana, SansSerif;
+  font-size:12px;
+}
+
+footer ul#liens {
+  list-style: none;
+  display: flex;
+  flex-flow: row wrap;
+  width:75%;
+}
+
+footer #liens li:not(:last-child):after {
+  content: "|";
+}
+
+#copyright {
   margin-top: 10px;
   list-style: none;
   padding: 10px 0 0 0;
@@ -259,9 +278,13 @@ ul#liens {
   justify-content: space-between;
 }
 
-#plop a {
+#copyright a {
   font-size: inherit;
 }
+
+/**
+ * RESPONSIVE
+ */
 
 @media handheld, only screen and (max-width: 580px), only screen and (max-device-width: 580px) {
   .container { width: 90%; }
@@ -290,6 +313,10 @@ ul#liens {
     flex: 100%;
   }
   #liens li:not(:last-child):after {
-  content: "";
+    content: "";
+  }
 }
-}
+
+/**
+ * END RESPONSIVE
+ */
