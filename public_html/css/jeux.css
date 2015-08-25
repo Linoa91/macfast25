@@ -87,6 +87,7 @@
 #recompense {
   text-align: center;
   padding: 10px;
+  padding-bottom: 20px;
 }
 #recompense.gagne { background-color: #61a531; }
 #recompense.perdu { background-color: #db6211; }
@@ -100,4 +101,8 @@
   font-size: small;
   color: white;
   float: left;
+}
+
+img#smiley {
+  width: 30%;
 }
