@@ -3,6 +3,7 @@
 require_once(__DIR__.'/mysql.php');
 
 class Visiteur {
+  // RECUPERE LES DONNES AVEC UNE FONCTION SPECIFIQUE DE DIFFUSION
   private $IP;
   public $email;
   public $nom;
@@ -19,7 +20,7 @@ class Visiteur {
     $this->telephone = $telephone;
     $this->abonNewsletter = $abonNewsletter;
     $this->offrePartenaire = $offrePartenaire;
-    $this->codeParticipation = $_SESSION['coupon'];
+    $this->codeParticipation = $_SESSION['coupon']; //LE COUPON EST LE CODE DE VALISATION A DONNER DANS UN RESTAURANT
   }
 
   public function enregistrer() {

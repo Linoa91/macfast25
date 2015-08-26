@@ -1,6 +1,7 @@
 <?php
-session_start();
+session_start(); //DONNEES GARDER DURANT LA SESSION UTILISATEUR 
 // web/index.php
+// REQUIRE PERMET DE FAIRE EN SORTE QUE LE PHP EST REQUIS
 require_once __DIR__.'/../vendor/autoload.php';
 require_once __DIR__.'/../services/mail.php';
 require_once __DIR__.'/../services/user.php';
