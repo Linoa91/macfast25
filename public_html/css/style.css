@@ -141,10 +141,10 @@ a.btn.gplus           { background-image: url(/images/boutons/google+_N.png); }
 a.btn.gplus:hover     { background-image: url(/images/boutons/google+_H.png); }
 a.btn.lang.fr         { background-image: url(/images/boutons/picto_langue_N.png); }
 a.btn.lang.fr:hover   { background-image: url(/images/boutons/picto_langue_H.png); }
-a.btn.lang.en         { background-image: url(/images/boutons/picto_langue_N.png); }
-a.btn.lang.en:hover   { background-image: url(/images/boutons/picto_langue_H.png); }
-a.btn.lang.de         { background-image: url(/images/boutons/picto_langue_N.png); }
-a.btn.lang.de:hover   { background-image: url(/images/boutons/picto_langue_H.png); }
+a.btn.lang.en         { background-image: url(/images/boutons/BTNEN.jpg); }
+a.btn.lang.en:hover   { background-image: url(/images/boutons/BTNENH.jpg); }
+a.btn.lang.de         { background-image: url(/images/boutons/BTNDE.jpg); }
+a.btn.lang.de:hover   { background-image: url(/images/boutons/BTNDEH.jpg); }
 
 header h3 {
   text-align: center;
