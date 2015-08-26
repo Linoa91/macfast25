@@ -54,9 +54,9 @@ $app->post('/jouer', function (Request $request) use ($app, $_SESSION) { // réc
     $SaveUser = $app['user.save'];
     $offrePartenaire = $request->get('offre_partenaire');
     $abonNewsletter = $request->get('abon_newsletter');
+    $cadeau = $app['cadeau.get']($_SESSION['coupon']);
     $user = $SaveUser($name, $firstname, $email, $telephone, $abonNewsletter, $offrePartenaire);
     if ($user != null) {
-      $cadeau = $app['cadeau.get']($_SESSION['coupon']);
       if ($cadeau != null && $cadeau->type != "MUS") {
         $app['mail.send']($cadeau->coupon, $user);
       }

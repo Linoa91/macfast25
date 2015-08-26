@@ -9,10 +9,10 @@
 	<section id="recompense" class="container {% if cadeau %}gagne{% else %}perdu{% endif %}">
           {% if cadeau %}
           <h2>Gagné !</h2>
-          <p>Vous remportez <br /> un {{ cadeau.nom }}</p>
+          <p>Vous remportez <br /> un {{ cadeau.nom | striptags }}</p>
           <img />
           {% if cadeau.type == "MUS" %}
-               <a href="https://www.itunes.com" class="info_mode_reception">Clickez sur le lien pour télécharger votre musique</a>
+               <a href="https://www.itunes.com" class="info_mode_reception">Cliquez sur le lien pour télécharger votre musique</a>
           {% else %}
                <span class="info_mode_reception">Vous aller recevoir votre code d'activation par mail et SMS</span>
           {% endif %}

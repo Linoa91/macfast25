@@ -18,8 +18,8 @@ class Cadeau {
    */
   public static function recuperer($code) {
     $res = query("SELECT cadeaux.nom, coupon, type_cadeau FROM cadeaux LEFT JOIN users ON users.code_participation = cadeaux.code_activation WHERE email IS NULL AND code_activation = '$code'");
-    if ($res == null) return null;
-    return new Cadeau($res['nom'], $res['coupon'], $res['type_cadeau']);
+    if ($res == null) { return null; }
+    return new Cadeau(utf8_encode($res['nom']), $res['coupon'], $res['type_cadeau']);
   }
 }
 

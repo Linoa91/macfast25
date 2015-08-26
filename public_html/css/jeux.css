@@ -61,7 +61,7 @@
   content: "Pas correct"
 }
  */
-#jouer_code input[type="submit"] {
+#jouer_code input[type="submit"], #jouer_code a {
   flex: 1;
 }
 
@@ -75,15 +75,20 @@
   font-size: x-large;
 }
 
-#jouer_code div input {
+#jouer_code div input, #jouer_code div a {
   height: 50px;
   background: white;
 }
 
-#jouer_code div input:hover {
+#jouer_code div input:hover, #jouer_code div a:hover {
   background-color: #db6211;
 }
 
+ #jouer_code div a input {
+  width: 100%;
+  height: 100%;
+  font-size: x-large;
+ }
 #recompense {
   text-align: center;
   padding: 10px;
