@@ -1,0 +1,11 @@
+# Règle spécifique à Google
+# User-agent: Googlebot
+# Disallow: /templates/
+
+# Règle pour tous les robots
+User-agent: *
+Disallow: /templates/
+
+# Disallow:/Permet d'exclure toutes les pages du serveur (aucune aspiration possible).
+# Disallow: Permet de n'exclure aucune page du serveur (aucune contrainte). Un fichier robots.txt vide ou inexistant aura une 
+#conséquence identique.
