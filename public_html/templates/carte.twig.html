@@ -1,17 +1,56 @@
 {% extends "base.twig.html" %} 
 
+{% block titrepage %}- Nous trouver {% endblock %}
+
 {% block css_links %}
 <style>
-  #maps {
+  #map_canvas, #maps {
     margin: auto;
     width: 100%;
     height: 480px;
   }
 </style>
+<!-- <script type="text/javascript" src="//maps.google.com/maps/api/js?sensor=true"></script>  -->
+  <script type="text/javascript">
+/* 
+    var previousPosition = null;
+   
+    function initialize(position) {
+      map = new google.maps.Map(document.getElementById("map_canvas"), {
+            zoom: 12,
+            center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
+            // mapTypeId: google.maps.MapTypeId.ROADMAP
+          });
+
+      var kmlLayer = new google.maps.KmlLayer({
+        url: '/MacFast.kml',
+        suppressInfoWindows: true,
+        map: map
+      });
+      console.log(kmlLayer);
+  //     var ctaLayer = new google.maps.KmlLayer({
+  //   url: '/MacFast.kml',
+  //   map: map
+  // }); 
+    }
+      if (navigator.geolocation)
+        var watchId = navigator.geolocation.watchPosition(successCallback, null, {enableHighAccuracy:true});
+      else
+        alert("Votre navigateur ne prend pas en compte la géolocalisation HTML5");
+       
+    function successCallback(position){
+      initialize(position)
+      var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(position.coords.latitude, position.coords.longitude), 
+        map: map
+      });
+    }  */
+  </script>
 {% endblock %}
 
 {% block main %}
 				<section class="container">
+        <!-- <div id="map_canvas"></div> -->
           <iframe id="maps" src="https://www.google.com/maps/d/u/0/embed?mid=zOUkX_Zoinuk.k1qLFhZgz9vY" frameborder="0" style="border:0" allowfullscreen></iframe>
         </section>
 {% endblock %}

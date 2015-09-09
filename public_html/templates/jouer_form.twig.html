@@ -1,5 +1,7 @@
 {% extends "base.twig.html" %}
 
+{% block titrepage %}- Formulaire d'inscription {% endblock %}
+
 {% block css_links %}
 <!-- Lien du style specifique aux pages de jeux  -->
 <link rel="stylesheet" type="text/css" href="/css/jeux.css" />
@@ -14,7 +16,7 @@
   {% if error is defined %}
   <span id="errors">{{ error }}</span>
   {% endif %}
-  <form action="" method="post">
+  <form action="" method="post"><!-- ENVOI UN FORMULAIRE AVEC PLUSIEURS CHAMPS REQUIS -->
     <fieldset class="data">
       <label>Nom<input type="text" name="name" required/></label>
       <label>Prénom<input type="text" name="firstname" required /></label>

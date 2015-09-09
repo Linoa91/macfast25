@@ -1,5 +1,7 @@
 {% extends "base.twig.html" %}
 
+{% block titrepage %}- Cadeaux {% endblock %}
+
 {% block css_links %}
 <!-- Lien du style specifique aux pages de jeux  -->
 <link rel="stylesheet" type="text/css" href="/css/cadeaux.css" />
@@ -9,7 +11,7 @@
 				<section id="cadeaux" class="container">
           <h2>Les cadeaux à gagner</h2>
           <ul id="galery">
-            {% for cadeau in cadeaux %}
+            {% for cadeau in cadeaux %}<!-- ON RECUPERE LES CADEAUX DANS INDEX.PHP -->
             <li>
               <img src="/images/cadeaux/{{ cadeau.img }}" alt="{{ cadeau.alt }}" />
               <p>

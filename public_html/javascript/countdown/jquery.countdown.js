@@ -81,7 +81,7 @@
       'Days',
       'Hours',
       'Minutes',
-//       'Seconds'
+      'Seconds'
     ];
 		$.each(arr,function(i){
 			$('<span class="count'+this+'">').html(

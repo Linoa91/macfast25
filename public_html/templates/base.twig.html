@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    <meta name="description" content="Le jeu-concours des 25 ans de MAC FAST">
+    <meta name="description" content="MAC FAST, marque de référence dans la restauration rapide de sandwich énergétiques de qualité, fête ses 25 ans et organise un grand jeu-concours !"><!--147 caratères max 156-->
     <!-- <base href="http://localhost/macfast/" target="_blank"> -->
     <meta charset="utf-8">
     <meta name="Keywords" content="jeu, jeu-concours, sandwich, cadeau, cadeaux, 2015, macfast, gagner, gagner voiture, voyages, gagner voyage, gagner cadeau, nutritif, surprise, lots">
-    <title>Mac Fast 25 ans</title>
+    <title>Mac Fast 25 ans {% block titrepage %}{% endblock %}</title>
     <!-- Feuille de reset css conseillé par Alsacréation (http://www.alsacreations.com/astuce/lire/36-reset-css.html) -->
     <link rel="stylesheet" type="text/css" href="/css/normalize.min.css" />
     <link rel="stylesheet" type="text/css" href="/css/fonts.css" />
@@ -15,10 +15,21 @@
     <!--[if lt IE 9]>
 <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
-    
+<!-- CODE POUR FAIRE UN GOOGLE ANALYTICS -->
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-67062047-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
 
   </head>
   <body >
+  <!-- SCRIPT BOX FACEBOOK -->
      <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -51,7 +62,7 @@
       </nav>
       <main>
         {% block main %}
-        <section>
+        <section><!-- LE TIMER -->
           {{ include('counter.twig.html') }}
         </section>
         {% endblock %}

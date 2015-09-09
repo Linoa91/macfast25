@@ -1,9 +1,12 @@
 <?php
 
 require_once(__DIR__.'/mysql.php');
-
+/**
+ * Visiteur est la classe qui représente les joueurs s'étend inscrit et donc ayant participer au jeu.
+ * Elle correspond à la table user en base de données.
+ * LA TABLE USER CONTIENT PLUSIEURS DONNEES NOTAMENT SUR LEUR ACCORD EN TERME DE PUB ET NEWSLETTER
+ */
 class Visiteur {
-  // RECUPERE LES DONNES AVEC UNE FONCTION SPECIFIQUE DE DIFFUSION
   private $IP;
   public $email;
   public $nom;
@@ -13,6 +16,7 @@ class Visiteur {
   private $abonNewsletter;
   private $offrePartenaire;
 
+  // RECUPERE LES DONNES AVEC UNE FONCTION SPECIFIQUE DE DIFFUSION
   function Visiteur($email, $nom, $prenom, $telephone, $abonNewsletter, $offrePartenaire) {
     $this->email = $email;
     $this->nom = $nom;
@@ -20,7 +24,7 @@ class Visiteur {
     $this->telephone = $telephone;
     $this->abonNewsletter = $abonNewsletter;
     $this->offrePartenaire = $offrePartenaire;
-    $this->codeParticipation = $_SESSION['coupon']; //LE COUPON EST LE CODE DE VALISATION A DONNER DANS UN RESTAURANT
+    $this->codeParticipation = $_SESSION['coupon']; //LE COUPON EST LE CODE DE VALIDATION A DONNER DANS UN RESTAURANT
   }
 
   public function enregistrer() {

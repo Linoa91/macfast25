@@ -1,5 +1,12 @@
 <?php
+/**
+ * Ce fichier contient la class Cadeau et toutes les fonctionnalités liés aux cadeaux
+ */
 
+/**
+ * Cadeau est la classe qui représente les cadeaux à gagnés.
+ * Elle correspond à la table CADEAUX dans la base de données.
+ */
 class Cadeau {
   public $nom;
   public $coupon;
@@ -23,6 +30,10 @@ class Cadeau {
   }
 }
 
+/**
+ * ON RECUPERE LE CODE CADEAU ASSOCIE AU CADEAU
+ * @param $code string le code d'activation de l'utilisateur
+ */
 function recupererCadeau($code) {
   return Cadeau::recuperer($code);
 }

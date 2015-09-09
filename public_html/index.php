@@ -1,4 +1,10 @@
 <?php
+/**
+ * @file
+ * Ce fichier contient tout les controlleurs du site.
+ * Ce fichier permet aussi d'initialiser le site.
+ */
+
 session_start(); //DONNEES GARDER DURANT LA SESSION UTILISATEUR 
 // web/index.php
 // REQUIRE PERMET DE FAIRE EN SORTE QUE LE PHP EST REQUIS
@@ -14,22 +20,53 @@ $app = new Silex\Application();
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
   'twig.path' => __DIR__.'/templates',
 ));
-
+/**
+ * On ajoute dans l'application la fonction d'enregistrement de l'utilisateur
+ */
 $app['user.save'] = $app->protect(function($name, $firstname, $email, $telephone, $abonNewsletter, $offrePartenaire) {
   return enregistrerUtilisateur($name, $firstname, $email, $telephone, $abonNewsletter, $offrePartenaire);
 });
+/**
+ * Cette fonction permet d'appeler la fonction qui récupère les cadeaux et de la rendre disponible depuis la variable $app
+ */
 $app['cadeau.get'] = $app->protect(function($code) {
   return recupererCadeau($code);
 });
+/**
+ * On ajoute dans l'application la fonction d'envoie de mail du coupon cadeaux
+ */
 $app['mail.send'] = $app->protect(function($coupon, $user) {
   return envoyerCouponCadeaux($coupon, $user);
 });
 
-
+/**
+ * Détection automatique de la langue du navigateur
+ *
+ * Les codes langues du tableau $aLanguages doivent obligatoirement être sur 2 caractères
+ *
+ * Utilisation : $langue = autoSelectLanguage(array('fr','en','es','it','de','cn'), 'en')
+ *
+ * @param array $aLanguages Tableau 1D des langues du site disponibles (ex: array('fr','en','es','it','de','cn')).
+ * @param string $sDefault Langue à choisir par défaut si aucune n'est trouvée
+ * @return string La langue du navigateur ou bien la langue par défaut
+ * @author Hugo Hamon
+ * @version 0.1
+ */
+function autoSelectLanguage($aLanguages, $sDefault = 'fr') {
+  if(!empty($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+    $aBrowserLanguages = explode(',',$_SERVER['HTTP_ACCEPT_LANGUAGE']);
+    foreach($aBrowserLanguages as $sBrowserLanguage) {
+      $sLang = strtolower(substr($sBrowserLanguage,0,2));
+      if(in_array($sLang, $aLanguages)) {
+        return $sLang;
+      }
+    }
+  }
+  return $sDefault;
+}
 /**
  * Controller de la page d'accueil
  * @category Controlleur
- * @todo mettre en place le compte a rebour ({@link http://flipclockjs.com/api})
  * @return le code html de la page d'accueil
  */
 $app->get('/', function () use ($app) {
@@ -38,33 +75,40 @@ $app->get('/', function () use ($app) {
 
 /**
  * @category Controlleur
- * Controller de la page de jeu / affichage des cadeaux
+ * Controller de la page de jeu
+ * Affiche la page de jeu avec le tableau pour le code ticket
  */
 $app->get('/jouer', function () use ($app) {
-  return $app['twig']->render('jouer_code.twig.html', array()); // retourne un tableau pour le formulaire
+  return $app['twig']->render('jouer_code.twig.html', array()); // Appel twig du template de la page de jeu
 });
-$app->post('/jouer', function (Request $request) use ($app, $_SESSION) { // récupère les données utilisateurs
+/**
+ * @category Controlleur
+ * Controller de la page de jeu / traitement du code cadeau et du formulaire d'inscription
+ */
+$app->post('/jouer', function (Request $request) use ($app, $_SESSION) { // on recupere le code ticket et on verifie si il est correcte
   if ($request->get('code_verif')) {
+    // $_SESSION = Un tableau associatif des valeurs stockées dans les sessions, et accessible au script courant.
     $_SESSION['coupon'] = $request->get('code');
+    // afficher la page de formulaire suite à l'envoi du code du ticket
     return $app['twig']->render('jouer_form.twig.html', array());
   } else if ($request->get('user')) {
     $name = $request->get('name');
     $firstname = $request->get('firstname');
     $email = $request->get('email');
     $telephone = $request->get('telephone');
-    $SaveUser = $app['user.save'];
     $offrePartenaire = $request->get('offre_partenaire');
     $abonNewsletter = $request->get('abon_newsletter');
     $cadeau = $app['cadeau.get']($_SESSION['coupon']);
-    $user = $SaveUser($name, $firstname, $email, $telephone, $abonNewsletter, $offrePartenaire);
+    $user = $app['user.save']($name, $firstname, $email, $telephone, $abonNewsletter, $offrePartenaire);
     if ($user != null) {
-      if ($cadeau != null && $cadeau->type != "MUS") {
+      if ($cadeau != null) {
+        // si les conditions sont ok alors le mail avec le code coupon est envoyé
         $app['mail.send']($cadeau->coupon, $user);
       }
-      return $app['twig']->render('jouer_recompense.twig.html', array('cadeau' => $cadeau));
-    }// vérification des données utilisateur et code d'erreur si déjà enregistré
+      return $app['twig']->render('jouer_recompense.twig.html', array('cadeau' => $cadeau)); // si les conditions sont ok alors on affiche le cadeau gagner ou perdu
+    }
     return $app['twig']->render('jouer_form.twig.html', array('error' => 'Ce mail est déjà utilisé'));
-  }
+  }// vérification des données utilisateur et code d'erreur si déjà enregistré
   return $app['twig']->render('jouer_code.twig.html', array());
 });
 
@@ -83,7 +127,7 @@ $app->get('/cadeaux', function () use ($app) {
       ),
       array(
         'nom' => '15 weeks end à Paris',
-        'description' => 'Paris est la capitale ;ondiale de la mode, de la culture, de l\'art, de la gastronomie... bref, une destination à ne manquer sous aucun prétexte.',
+        'description' => 'Paris est la capitale mondiale de la mode, de la culture, de l\'art, de la gastronomie... bref, une destination à ne manquer sous aucun prétexte.',
         'img' => 'paris.jpg',
         'alt' => 'cadeau paris'
       ),
@@ -129,7 +173,7 @@ $app->get('/cadeaux', function () use ($app) {
 
 /**
  * @category Controller
- * Controller de la gallerie de cadeaux / informations cadeaux
+ * Controller de la carte / informations carte
  */
 $app->get('/carte', function () use ($app) {
   return $app['twig']->render('carte.twig.html');
@@ -146,7 +190,7 @@ $app->get('/mentionslegales', function () use ($app) {
 
 /**
  * @category Controller
- * Controller des mentionslegales
+ * Controller du reglement du jeu
  */
 $app->get('/reglement_jeu', function () use ($app) {
   return $app['twig']->render('reglement_jeu.twig.html');
@@ -154,7 +198,7 @@ $app->get('/reglement_jeu', function () use ($app) {
 
 /**
  * @category Controller
- * Controller des mentionslegales
+ * Controller des conditions generales
  */
 $app->get('/condition_general', function () use ($app) {
   return $app['twig']->render('condition_general.twig.html');

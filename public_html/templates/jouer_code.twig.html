@@ -1,5 +1,7 @@
 {% extends "base.twig.html" %}
 
+{% block titrepage %}- Jeu {% endblock %}
+
 {% block css_links %}
 <!-- Lien du style specifique aux pages de jeux  -->
 <link rel="stylesheet" type="text/css" href="/css/jeux.css" />
@@ -8,15 +10,15 @@
 {% block main %}
 <section class="container" id="jouer_code">
   {% if error is defined %}
-  <span id="errors">{{ error }}</span>
+  <span id="errors">{{ error }}</span><!-- VERIFIE SI IL Y A UNE ERREUR ET AFFICHE LE CODE ERREUR -->
   {% endif %}
   <h2>
     Entrez votre code ici
   </h2>
   <form action="" method="post">
-    <input type="text" name="code" pattern="[A-Fa-f0-9]{8}" required />
+    <input type="text" name="code" pattern="[A-Fa-f0-9]{8}" required /><!-- Les patterns - ou masques - peuvent être créés sur-mesure, grâce à l'attribut pattern qui accepte une expression régulière.-->
     <div>
-      <input type="submit" name="code_verif" value="{{ 'Valider' | upper }}" />
+      <input type="submit" name="code_verif" value="{{ 'Valider' | upper }}" /><!-- SI LE CODE EST VALIDE ON PASSE A LA SUITE  -->
       <a href="/index.php/carte#noustrouver;"><input type="submit" name="no_ticket" value="{{ 'Pas de ticket' | upper }}" /></a>
     </div>
   </form>
